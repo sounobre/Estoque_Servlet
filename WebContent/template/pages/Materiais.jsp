@@ -47,7 +47,7 @@
 	<div id="page-wrapper">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-12">
+				<div >
 					<h1 class="page-header">Materiais</h1>
 				</div>
 				<!-- /.col-lg-12 -->
@@ -55,10 +55,10 @@
 			<!-- /.row -->
 		</div>
 		<!-- /.container-fluid -->
-<form action="Materiais.jsp" method="post">
-		<div class="container">
+<form action="Materiais.html" method="post">
+		<div class="container" >
 
-			<ul class="nav nav-tabs">
+			<ul class="nav nav-tabs" style="width: 90% !important;">
 				<li class="active"><a data-toggle="tab" href="#home">Materiais</a></li>
 				<li><a data-toggle="tab" href="#menu1">Princípio Ativo</a></li>
 				<li><a data-toggle="tab" href="#menu2">Unidades</a></li>
@@ -71,20 +71,20 @@
 				<div id="home" class="tab-pane fade in active">
 
 
-					<div class="panel panel-default">
+					<div class="panel panel-default" style="width: 90% !important;">
 						<div class="panel-heading">
 
 
 							<ul class="nav" id="pesquisa-materiais">
 								<li class="sidebar-search">
 									<div class="input-group custom-search-form">
-										<select class="form-control" style="width: 10% !important">
-											<option value="codigo">Código</option>
-											<option value="codigoMaterial">Cód. Material</option>
-											<option value="descricao">Descrição</option>
-											<option value="estoque">Estoque</option>
-											<option value="estoqueMin">Estoque Min.</option>
-											<option value="estoqueMax">Estoque Max</option>
+										<select name="select" id="sel" class="form-control" style="width: 10% !important">
+											<option value="codigo" id="codigo">Código</option>
+											<option value="codigoMaterial" id="codigomaterial">Cód. Material</option>
+											<option value="descricao" id="descricao">Descrição</option>
+											<option value="estoque" id="estoque">Estoque</option>
+											<option value="estoqueMin" id="estoquemin">Estoque Min.</option>
+											<option value="estoqueMax" id="estoquemax">Estoque Max</option>
 
 										</select> <input type="text" class="form-control"
 											style="width: 40% !important" name="editPesquisa" placeholder="Pesquisar...">
@@ -103,8 +103,8 @@
 </form>							
 						<div class="panel-body">
 						
-						<c:if test="${fn.length(lista) > 0 }" >
-								<table style="width: 100%">
+						<c:if test="${fn:length(lista) > 0 }" >
+								<table style="width: 100%" border="1px" class="table">
 										<tr>
 											<th>Código</th>	
 											<th>Cód. Material</th>
@@ -124,10 +124,11 @@
 								</table>
 								
 						</c:if>	
-						dsfasdfasdfasdfasdf
+						
 						</div>
 					</div>
 				</div>
+				
 			
 				<div id="menu1" class="tab-pane fade">
 					<h3>Menu 1</h3>

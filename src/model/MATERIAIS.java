@@ -1,46 +1,91 @@
 package model;
 
-import java.sql.Date;
 
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class MATERIAIS {
 	
+	@Id
+	@Column
 	private String CODIGO;
+	@Column
 	private String DESCRICAO;
+	@Column
 	private String UNIDADE;
+	@Column
 	private String CODMATCOBRANCA;
+	@Column
 	private String COD_AHCRJ;
+	@Column
 	private String COD_BRASINDICE;
+	@Column
 	private String COD_SIMPRO;
+	@Column
 	private String USUARIO_CRICAO;
+	@Column
 	private String USUARIO_ALTERACAO;
+	@Column
 	private String EMPRESA;
+	@Column
 	private String CODSUBGRUPO;
+	@Column
 	private String REGISTRO_ANVISA;
+	@Column
 	private String REFERENCIA_FABRICANTE;
+	@Column
 	private String AUT_FUNCIONAMENTO;
+	@Column
 	private String TIPO;
+	@Column
 	private String EXCLUIDO;
+	@Column
 	private String AVISO_ESTOQUE_MINIMO;
+	@Column
 	private String STATUS;
+	@Column
 	private String HABILITADO;
+	@Column
 	private String CLASSIFICACAO;
+	@Column
 	private Long CODIGO_MATERIAL;
+	@Column
 	private Integer CODIGO_BARRA;
+	@Column
 	private Integer ID_UNIDADE;
+	@Column
 	private Integer ID_SUBGRUPO;
+	@Column
 	private Integer ID_PRINCIPIO_ATIVO;
+	@Column
 	private Integer ID_ARMAZENAMENTO;
+	@Column
 	private Integer TEMPO_MEDIO_RESSUPRIMENTO;
+	@Column
 	private Double  PRECO;
+	@Column
 	private Double  PRECO_COMPRA;
+	@Column
 	private Double  ESTOQUE_MINIMO;
+	@Column
 	private Double  ESTOQUE_MAXIMO;
+	@Column
 	private Double  ESTOQUE;
+	@Column
 	private Double  QUANTIDADE_AVISO;
+	@Column
 	private Double  VALOR_MEDIO;
+	@Column
 	private Double  ESTOQUE_SEGURANCA;
+	@Column
 	private Double  DEMANDA_MEDIA_DIARIA;
+	@Column
 	private Date DATA_CRIACAO;
+	@Column
 	private Date DATA_ALTERACAO;
 	
 	public MATERIAIS(String cODIGO, String dESCRICAO, String uNIDADE, String cODMATCOBRANCA, String cOD_AHCRJ,

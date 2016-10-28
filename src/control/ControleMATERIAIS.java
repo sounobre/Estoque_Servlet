@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.firebirdsql.jdbc.parser.JaybirdSqlParser.returningClause_return;
+
 import model.MATERIAIS;
 import persistence.MateriaisDao;
 
 
-@WebServlet({"/ControleMATERIAIS","/Materiais.jsp"})
+@WebServlet({"/ControleMATERIAIS","/template/pages/Materiais.html"})
 public class ControleMATERIAIS extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,13 +27,13 @@ public class ControleMATERIAIS extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("doGet");
 		execute(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("doPost");
 		execute(request, response);
 	}
 	
@@ -42,7 +44,7 @@ protected void execute(HttpServletRequest request, HttpServletResponse response)
 		
 		try{
 			
-			if(url.equalsIgnoreCase("/Materiais.jsp")){
+			if(url.equalsIgnoreCase("/template/pages/Materiais.html")){
 				buscar(request, response);
 			
 		}
@@ -52,7 +54,20 @@ protected void execute(HttpServletRequest request, HttpServletResponse response)
 		}
 		
 	}
-		
+protected void hql(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+			String codigo = request.getParameter("select");
+			String edit = request.getParameter("editPesquisa");
+			
+			
+			String q = "SELECT M FROM MATERIAIS AS M WHERE 1=1";
+			if( edit != null  )  (codigo == codigo){
+				q += "AND M.CODIGO = ";
+			}
+			
+			
+			return q;
+		}
 
 protected void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
@@ -62,6 +77,12 @@ protected void buscar(HttpServletRequest request, HttpServletResponse response) 
 			MateriaisDao md = new MateriaisDao();
 			
 			lista = md.listar();
+			
+			if(lista.size() == 0){
+				System.out.println("NADA");
+			}else{
+				System.out.println(lista.size());
+			}
 			
 			request.setAttribute("lista", lista);
 			
